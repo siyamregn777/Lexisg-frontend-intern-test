@@ -10,7 +10,7 @@ const Header = () => {
       </div>
 
       <div className="flex items-center gap-4">
-        <div className="flex-shrink-0"> {/* Wrap ModeToggle to prevent shifting */}
+        <div className="flex-shrink-0"> 
           <ModeToggle />
         </div>
         

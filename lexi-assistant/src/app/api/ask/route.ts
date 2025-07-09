@@ -1,3 +1,4 @@
+// app/api/ask/route.ts
 import { sampleQuery, sampleResponse } from '@/lib/data'
 import { NextResponse } from 'next/server'
 
