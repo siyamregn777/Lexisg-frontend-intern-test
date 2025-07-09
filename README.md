@@ -38,6 +38,8 @@ cd lexi-assistant
     npm install react-pdf @react-pdf/renderer
     npx shadcn@latest add textarea
     npx shadcn@latest add button  
+    npm install lucide-react
+
 >>        
 ## Learn More
 
