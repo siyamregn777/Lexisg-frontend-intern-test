@@ -1,15 +1,37 @@
+
 # Lexisg-frontend-intern-test
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+> GitHub Link: [https://github.com/siyamregn777/Lexisg-frontend-intern-test.git](https://github.com/siyamregn777/Lexisg-frontend-intern-test.git)
 
-## Getting Started
-    >> npx create-next-app@latest lexi-assistant --typescript
-    >> cd lexi-assistant
-    >> npm install -D tailwindcss postcss autoprefixer
-    >> npx tailwindcss init -p
-    
+## 🚀 Features
 
-Second, run the development server:
+- ✅ AI-powered legal question answering
+- 📎 Proper citation formatting
+- 📄 PDF document linking with paragraph reference
+- 🌙 Dark/light mode toggle
+- 📱 Fully responsive design
+- 💬 Chat-style interface similar to ChatGPT
+
+## 📦 Getting Started
+
+### Step 1: Create App and Setup Tailwind
+
+```bash
+npx create-next-app@latest lexi-assistant --typescript
+cd lexi-assistant
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+````
+
+### Step 2: Install Required Packages
+
+```bash
+npm install openai
+npm install react-pdf @react-pdf/renderer
+npm install next-themes
+```
+
+### Step 3: Run Development Server
 
 ```bash
 npm run dev
@@ -21,23 +43,69 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🧩 Additional UI Setup with Shadcn UI
 
-## open a new terminal 
-cd lexi-assistant 
-    npx shadcn@latest init
-    npx shadcn@latest add sidebar
-    npx shadcn@latest add dropdown-menu
-    npm install next-themes
-    npx shadcn@latest add skeleton
-    npm install openai  
-    npm install react-pdf @react-pdf/renderer
-    npx shadcn@latest add textarea
-    npx shadcn@latest add button  
-    npm install lucide-react
+Make sure you are inside the project folder:
 
+```bash
+cd lexi-assistant
+```
 
+Then run these commands to add UI components:
+
+```bash
+npx shadcn@latest init
+npx shadcn@latest add sidebar
+npx shadcn@latest add dropdown-menu
+npx shadcn@latest add skeleton
+npx shadcn@latest add textarea
+npx shadcn@latest add button
+```
+
+---
+
+## ✅ Prerequisites
+
+* Node.js (v18 or later)
+* npm (v9 or later)
+* OpenAI API Key (optional for dynamic AI backend)
+
+---
+
+## 🧠 Notes
+
+* The app uses a fake AI response from `/api/ask` for the frontend test.
+* Citations open a PDF link and simulate paragraph highlighting.
+* ReactMarkdown is used to format the assistant's messages cleanly.
+
+---
+
+## 🧪 Example Use
+
+Ask:
+
+> "In a motor accident claim where the deceased was self-employed and aged 54–55 years at the time of death, is the claimant entitled to an addition towards future prospects in computing compensation under Section 166 of the Motor Vehicles Act, 1988? If so, how much?"
+
+It responds with:
+
+> " Yes, under Section 166 of the Motor Vehicles Act, 1988, the claimants are entitled to an addition for future prospects even when the deceased was self-employed and aged 54–55 years at the time of the accident. In Dani Devi v. Pritam Singh, the Court held that 10% of the deceased’s annual income should be added as future prospects"
+
+---
+
+## 📎 Citation Preview
+
+Clicking the citation opens the PDF and it will scrolls to the relevant paragraph .
+
+---
+
+## 🧑‍💻 Author
+
+**Siyamregn Yeshidagna**
+📧 [siyamregnyeshidagna777@gmail.com](mailto:siyamregnyeshidagna777@gmail.com)
+🔗 [GitHub Profile](https://github.com/siyamregn777)
+
+---

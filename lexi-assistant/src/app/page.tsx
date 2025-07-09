@@ -33,59 +33,68 @@ export default function Home() {
   const bottomRef = useRef<HTMLDivElement>(null)
 
   const handleAsk = async () => {
-    if (!query.trim()) return
-    setLoading(true)
+  if (!query.trim()) return;
+  setLoading(true);
 
-    setMessages((prev) => [...prev, { role: 'user', text: query }])
+  setMessages((prev) => [...prev, { role: 'user', text: query }]);
 
-    try {
-      const res = await fetch('/api/ask', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query }),
-      })
+  try {
+    const res = await fetch('/api/ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query }),
+    });
 
-      const data = await res.json()
+    const data = await res.json();
 
-      const fullText = data.answer
-      const citation = data.citation ? {
-        text: data.citation.text,
-        pdfUrl: data.citation.pdfUrl,
-        paragraph: data.citation.paragraph
-      } : undefined
+    const fullText = data.answer;
+    const citation = data.citation
+      ? {
+          text: data.citation.text,
+          pdfUrl: data.citation.pdfUrl,
+          paragraph: data.citation.paragraph,
+        }
+      : undefined;
 
-      setStreamedText('')
-      let index = 0
-      let tempText = ''
+    setStreamedText('');
+    let index = 0;
+    let tempText = '';
 
+    // Delay 2 seconds before starting to stream
+    setTimeout(() => {
       const type = () => {
-      if (index < fullText.length) {
-        tempText += fullText[index]
-        setStreamedText(cleanMarkdown(tempText)) // <-- clean here
-        index++
-        setTimeout(type, 20)
-      } else {
-        setMessages((prev) => [
-          ...prev,
-          { role: 'assistant', text: fullText, citation }
-        ])
-        setStreamedText('')
-      }
-    }
-
-
-      type()
-    } catch (error) {
-      console.error('Error:', error)
-      setMessages((prev) => [...prev, {
+        if (index < fullText.length) {
+          tempText += fullText[index];
+          setStreamedText(cleanMarkdown(tempText));
+          index++;
+          setTimeout(type, 20);
+        } else {
+          setMessages((prev) => [
+            ...prev,
+            { role: 'assistant', text: fullText, citation },
+          ]);
+          setStreamedText('');
+          setLoading(false); // done after streaming
+        }
+      };
+      type();
+    }, 2000); // <-- Delay for 2 seconds
+  } catch (error) {
+    console.error('Error:', error);
+    setMessages((prev) => [
+      ...prev,
+      {
         role: 'assistant',
-        text: "Sorry, I couldn't process your request. Please try again."
-      }])
-    } finally {
-      setQuery('')
-      setLoading(false)
-    }
+        text:
+          "Sorry, I couldn't process your request. Please try again.",
+      },
+    ]);
+    setLoading(false);
+  } finally {
+    setQuery('');
   }
+};
+
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
