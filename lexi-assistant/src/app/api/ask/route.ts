@@ -12,7 +12,7 @@ export async function POST(req: Request) {
   }
 
   return NextResponse.json({
-    answer: "Sorry, I couldn't find a matching precedent.",
+    answer: "Sorry, I couldn't find a matching Answer. Please , feel free to ask the customer support team. use siyamregnyeshidagna777@gmail.com",
     citation: null,
   })
 }

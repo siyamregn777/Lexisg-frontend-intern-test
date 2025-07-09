@@ -81,39 +81,41 @@ export default function Home() {
   return (
     <div className="flex flex-col h-screen bg-gray-50 dark:bg-gray-900 text-black dark:text-white">
       {/* Header */}
-      <header className="p-4 bg-white dark:bg-gray-800 text-gray-800 dark:text-white flex justify-between items-center border-b border-gray-200 dark:border-gray-700">
-        <div className="flex items-center gap-4">
-          <span className="text-lg font-semibold">Lexi Legal Assistant</span>
+      <header className="p-4 bg-white dark:bg-gray-800 text-gray-800 dark:text-white flex justify-between items-center border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50 h-16">
+      <div className="flex items-center gap-4">
+        <span className="text-lg font-semibold">Lexi Legal Assistant</span>
+      </div>
+
+      <div className="flex items-center gap-4">
+        <div className="flex-shrink-0"> {/* Wrap ModeToggle to prevent shifting */}
+          <ModeToggle />
         </div>
-
-        <div className="flex items-center gap-4">
-          <div className="cursor-pointer">
-            <ModeToggle />
-          </div>
-
-          <div className="flex items-center gap-1 cursor-pointer">
-            <Image 
-              src="/share.jpg" 
-              alt="Share" 
-              width={20} 
-              height={20}
-              className="w-5 h-5"
-            />
-            <span>Share</span>
-          </div>
-          <div className='text-white cursor-pointer'> ... </div>
-
-          <button className="p-1 rounded-full bg-amber-100 hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer">
-            <Image 
-              src="/account.jpg" 
-              alt="File" 
-              width={24} 
-              height={24} 
-              className="w-5 h-5 hover:rounded-full"
-            />
-          </button>
+        
+        <div className="flex items-center gap-1 cursor-pointer flex-shrink-0">
+          <Image 
+            src="/share.jpg" 
+            alt="Share" 
+            width={20} 
+            height={20}
+            className="w-5 h-5"
+          />
+          <span>Share</span>
         </div>
-      </header>
+        
+        <div className="text-white cursor-pointer flex-shrink-0"> ... </div>
+
+        <button className="p-1 rounded-full bg-amber-100 hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer flex-shrink-0">
+          <Image 
+            src="/account.jpg" 
+            alt="File" 
+            width={24} 
+            height={24} 
+            className="w-5 h-5 hover:rounded-full"
+          />
+        </button>
+      </div>
+    </header>
+
 
       {/* Chat Area */}
       <div className="flex-1 overflow-y-auto px-4 py-6 space-y-6">
@@ -159,10 +161,10 @@ export default function Home() {
             <div className="relative">
               {/* Left icons */}
               <div className="absolute left-3 bottom-3 flex gap-3">
-                <button className="p-1 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 ml-1">
+                <button className="p-1 cursor-pointer text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 ml-1">
                   <Plus className="w-5 h-5" />
                 </button>
-                <button className="p-1 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 mr-2">
+                <button className="p-1 cursor-pointer text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 mr-2">
                   <Wrench className="w-5 h-5" />
                 </button>
               </div>
@@ -191,11 +193,11 @@ export default function Home() {
                     disabled={loading}
                     className="p-1 text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 rounded-full mr-1"
                   >
-                    <ArrowUp className="w-5 h-5" />
+                    <ArrowUp className="w-5 h-5 cursor-pointer" />
                   </button>
                 ) : (
                   <button className="p-1 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 mr-1">
-                    <Mic className="w-5 h-5" />
+                    <Mic className="w-5 h-5 cursor-pointer" />
                   </button>
                 )}
               </div>
