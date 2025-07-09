@@ -14,6 +14,16 @@ type Message = {
     paragraph?: string
   }
 }
+const cleanMarkdown = (str: string) => {
+  return str
+    .replace(/\*\*(.*?)\*\*/g, '$1') // remove bold
+    .replace(/_(.*?)_/g, '$1')       // remove italics
+    .replace(/#+\s?/g, '')           // remove headings
+    .replace(/>`(.*?)`/g, '$1')      // remove inline code
+    .replace(/>\s?(.*)/g, '$1')      // remove blockquote arrow
+    .replace(/---/g, '')             // remove horizontal lines
+}
+
 
 export default function Home() {
   const [query, setQuery] = useState('')
@@ -49,19 +59,20 @@ export default function Home() {
       let tempText = ''
 
       const type = () => {
-        if (index < fullText.length) {
-          tempText += fullText[index]
-          setStreamedText(tempText)
-          index++
-          setTimeout(type, 20)
-        } else {
-          setMessages((prev) => [
-            ...prev,
-            { role: 'assistant', text: tempText, citation }
-          ])
-          setStreamedText('')
-        }
+      if (index < fullText.length) {
+        tempText += fullText[index]
+        setStreamedText(cleanMarkdown(tempText)) // <-- clean here
+        index++
+        setTimeout(type, 20)
+      } else {
+        setMessages((prev) => [
+          ...prev,
+          { role: 'assistant', text: fullText, citation }
+        ])
+        setStreamedText('')
       }
+    }
+
 
       type()
     } catch (error) {

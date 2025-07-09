@@ -6,7 +6,13 @@ export async function POST(req: Request) {
   const { query } = await req.json()
 
   const normalize = (str: string) =>
-    str.toLowerCase().replace(/\s+/g, ' ').trim()
+    str
+    .replace(/\*\*(.*?)\*\*/g, '$1') // remove bold
+    .replace(/_(.*?)_/g, '$1')       // remove italics
+    .replace(/#+\s?/g, '')           // remove headings
+    .replace(/>`(.*?)`/g, '$1')      // remove inline code
+    .replace(/>\s?(.*)/g, '$1')      // remove blockquote arrow
+    .replace(/---/g, '')   
 
   if (normalize(query) === normalize(sampleQuery)) {
     return NextResponse.json(sampleResponse)
