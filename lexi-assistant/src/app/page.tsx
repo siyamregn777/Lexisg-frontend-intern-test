@@ -1,9 +1,8 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { ModeToggle } from '@/components/ModeToggle'
 import { Plus, Wrench, Mic, ArrowUp } from 'lucide-react'
-import Image from 'next/image'
+import Header from '@/components/Header'
 
 type Message = {
   role: 'user' | 'assistant'
@@ -81,42 +80,7 @@ export default function Home() {
   return (
     <div className="flex flex-col h-screen bg-gray-50 dark:bg-gray-900 text-black dark:text-white">
       {/* Header */}
-      <header className="p-4 bg-white dark:bg-gray-800 text-gray-800 dark:text-white flex justify-between items-center border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50 h-16">
-      <div className="flex items-center gap-4">
-        <span className="text-lg font-semibold">Lexi Legal Assistant</span>
-      </div>
-
-      <div className="flex items-center gap-4">
-        <div className="flex-shrink-0"> {/* Wrap ModeToggle to prevent shifting */}
-          <ModeToggle />
-        </div>
-        
-        <div className="flex items-center gap-1 cursor-pointer flex-shrink-0">
-          <Image 
-            src="/share.jpg" 
-            alt="Share" 
-            width={20} 
-            height={20}
-            className="w-5 h-5"
-          />
-          <span>Share</span>
-        </div>
-        
-        <div className="text-white cursor-pointer flex-shrink-0"> ... </div>
-
-        <button className="p-1 rounded-full bg-amber-100 hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer flex-shrink-0">
-          <Image 
-            src="/account.jpg" 
-            alt="File" 
-            width={24} 
-            height={24} 
-            className="w-5 h-5 hover:rounded-full"
-          />
-        </button>
-      </div>
-    </header>
-
-
+      <Header/>
       {/* Chat Area */}
       <div className="flex-1 overflow-y-auto px-4 py-6 space-y-6">
         {messages.map((msg, idx) => (
@@ -132,14 +96,17 @@ export default function Home() {
             {msg.role === 'assistant' && msg.citation && (
               <div className="mt-4 border-t pt-2 text-sm text-gray-600 dark:text-gray-400">
                 <p className="italic">{msg.citation.text}</p>
+                <p className='mt-5 mb-3 text-black dark:text-white'> <span className='font-bold'> On Click: </span>Open this PDF:</p>
                 <a
                   href={msg.citation.pdfUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 dark:text-blue-400 hover:underline mt-1 inline-block"
                 >
+                  
                   📄 View Source Document
                 </a>
+                <p className='bold mt-5 text-black dark:text-white'>Scroll to and highlight Paragraph 7 </p>
               </div>
             )}
           </div>

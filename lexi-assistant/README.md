@@ -1,6 +1,6 @@
 # Lexisg-frontend-intern-test
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Github Link : https://github.com/siyamregn777/Lexisg-frontend-intern-test.git
 
 ## Features
 
