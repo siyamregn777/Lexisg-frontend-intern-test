@@ -3,6 +3,7 @@
 
 > GitHub Link: [https://github.com/siyamregn777/Lexisg-frontend-intern-test.git](https://github.com/siyamregn777/Lexisg-frontend-intern-test.git)
 
+screen recording link:  https://drive.google.com/file/d/1JXpoBVS2i8S8i_7FBXgrvLowtZWLeG14/view?usp=sharing
 ## 🚀 Features
 
 - ✅ AI-powered legal question answering
@@ -122,19 +123,12 @@ Lexi provides verifiable legal references with:
 - **Quoted text** from judgments(books or references)
 
 ### 2. Implementation Details
-```typescript
-type Citation = {
-  text: string;      // Exact quoted text
-  pdfUrl: string;    // "/cases/DaniVsPritam.pdf#page=2"
-  paragraph: string; // "7"
-};
 
-// Sample API response
 {
   answer: "Yes, under Section 166...",
   citation: {
     text: "10% of income should be awarded...",
-    pdfUrl: "/cases/DaniVsPritam.pdf#page=2",
+    pdfUrl: "/Dani Vs Pritam (Future 10 at age 54-55).pdf#page=2",
     paragraph: "7"
   }
 }

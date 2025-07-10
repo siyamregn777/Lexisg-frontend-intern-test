@@ -3,6 +3,7 @@
 
 > GitHub Link: [https://github.com/siyamregn777/Lexisg-frontend-intern-test.git](https://github.com/siyamregn777/Lexisg-frontend-intern-test.git)
 
+screen recording link:  https://drive.google.com/file/d/1JXpoBVS2i8S8i_7FBXgrvLowtZWLeG14/view?usp=sharing
 ## 🚀 Features
 
 - ✅ AI-powered legal question answering
