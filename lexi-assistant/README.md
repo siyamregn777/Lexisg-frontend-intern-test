@@ -109,3 +109,75 @@ Clicking the citation opens the PDF and it will scrolls to the relevant paragrap
 🔗 [GitHub Profile](https://github.com/siyamregn777)
 
 ---
+
+
+# How citation linking was handled
+
+## Citation Handling System
+
+### 1. How Citations Work
+Lexi provides verifiable legal references with:
+- **Direct PDF linking** to source documents
+- **Precise paragraph references**
+- **Quoted text** from judgments(books or references)
+
+### 2. Implementation Details
+```typescript
+type Citation = {
+  text: string;      // Exact quoted text
+  pdfUrl: string;    // "/cases/DaniVsPritam.pdf#page=2"
+  paragraph: string; // "7"
+};
+
+// Sample API response
+{
+  answer: "Yes, under Section 166...",
+  citation: {
+    text: "10% of income should be awarded...",
+    pdfUrl: "/cases/DaniVsPritam.pdf#page=2",
+    paragraph: "7"
+  }
+}
+
+
+# 3. Key Features
+# Feature	Implementation
+
+```
+One-click PDF access	target="_blank" links to /public/cases
+Paragraph references	Displays "Para 7" with quoted text
+Visual distinction	Italicized quotes + document icon
+````
+
+# UI Components
+
+```
+// Citation display component
+{citation && (
+  <div className="mt-4 border-t pt-4">
+    <blockquote className="italic pl-4 border-l-4 border-gray-200">
+      "{citation.text}"
+    </blockquote>
+    
+    <div className="mt-3 flex items-center gap-2">
+      <FileText className="w-4 h-4 text-gray-500" />
+      <a href={citation.pdfUrl}
+         target="_blank"
+         className="text-blue-600 hover:underline">
+        View Full Judgment
+      </a>
+      <span className="text-sm text-gray-500">
+        (Scroll to Para {citation.paragraph})
+      </span>
+    </div>
+  </div>
+)}
+```
+
+# Workflow
+1. User asks a legal question
+2. Lexi processes the question
+3. Lexi queries the API
+4. API returns answer + citation
+5. Lexi displays answer with citation and PDF link
+6. User clicks on PDF 

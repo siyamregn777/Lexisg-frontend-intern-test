@@ -23,7 +23,9 @@ The **Punjab and Haryana High Court**, in _Dani Devi v. Pritam Singh_ (FAO No. 4
 
 This is consistent with the principles laid down by the Supreme Court in _Pranay Sethi_, where future prospects were allowed even for self-employed and fixed-income individuals, based on age bands.`,
   citation: {
+    text: 'Dani Devi v. Pritam Singh, FAO No. 4353 of 2012, decided on 13.09.2022',
     pdfUrl: '/Dani Vs Pritam (Future 10 at age 54-55).pdf#page=2',
+    paragraph: '7',
   }
 }
 
