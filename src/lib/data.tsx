@@ -1,6 +1,6 @@
 export const sampleQuery = `In a motor accident claim where the deceased was self-employed and aged 54–55 years at the time of death, is the claimant entitled to an addition towards future prospects in computing compensation under Section 166 of the Motor Vehicles Act, 1988? If so, how much?`;
 
-// lib/legalResponses.ts
+
 export const sampleResponse = {
   answer: `Yes, in a motor accident claim under Section 166 of the Motor Vehicles Act, 1988, where the deceased was self-employed and aged 54–55 years at the time of death, the claimant **is entitled to an addition towards future prospects**.
 
